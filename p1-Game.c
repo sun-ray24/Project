@@ -46,8 +46,6 @@ int main() {
      clear();
     fflush(stdin);
     displayRules();
-   // printf("\n press any key: ");
-   // scanf("%d",&keyPress);
     keyPress=getchar();
     game(keyPress,name);
     return 0;
@@ -99,20 +97,23 @@ default:
 printf("\nSOME OTHER SCROLL KEY PRESSED: Press only Arrow keys to move in all directions\n"); break;
 }
 }
-ch1 = getch();
+if(moves)ch1 = getch();
 }
 if(!moves)
 {
     int replaychoice;
     purple();
-    printf("\nSorry...YOU LOST!. Better Luck Next Time\n");
+    printf("\nSorry %s...YOU LOST!. Better Luck Next Time\n",str);
     reset();
     green();
     printf("\nPress 'y' if you want to try your luck again\n");
     reset();
     fflush(stdin);
 replaychoice = getchar();
-if(replaychoice=='y') game('y',str);
+if(replaychoice=='y') {
+    main();
+    //game('y',str);
+    }
 }
 }
 void RandomNumberGenerator()
