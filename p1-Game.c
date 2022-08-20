@@ -34,19 +34,24 @@ int currentEmptyRow=3;
 int newEmptyRow;
 int newEmptyCol;
  int moves ;
+ int count=0;
+ char name[50];
 int main() {
+    
     int keyPress;
-    char name[50];
+    currentEmptyCol=3;
+    currentEmptyRow=3;
     fflush(stdin);
+    if(!count){
     purple();
     printf("\nYour Name Please: ");
     reset();
-   
-    scanf("%[^\n]s", name);
+     scanf("%[^\n]s", name);
      clear();
     fflush(stdin);
     displayRules();
-    keyPress=getchar();
+    keyPress=getch();
+    }
     game(keyPress,name);
     return 0;
 }
@@ -109,10 +114,11 @@ if(!moves)
     printf("\nPress 'y' if you want to try your luck again\n");
     reset();
     fflush(stdin);
-replaychoice = getchar();
+replaychoice = getch();
 if(replaychoice=='y') {
+    count++;
     main();
-    //game('y',str);
+    
     }
 }
 }
